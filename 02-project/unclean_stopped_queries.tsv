@@ -1,0 +1,64 @@
+ 1 	articles exist deal TSS (Time Sharing System), operating system IBM computers?
+ 2 	interested articles written Prieve Udo Pooch Prieve, . Pooch, .
+ 3 	Intermediate languages construction multi-targeted compilers; TCOLL
+ 4 	' interested mechanisms communicating disjoint processes, possibly, exclusively, distributed environment. descriptions complete mechanisms, implementations, opposed theoretical work abstract problem. Remote procedure calls message-passing examples interests.
+ 5 	' papers design implementation editing interfaces, window-managers, command interpreters, . essential issues human interface design, views improvements user efficiency, effectiveness satisfaction.
+ 6 	Interested articles robotics, motion planning geometric combinatorial aspects. interested dynamics arm motion.
+ 7 	interested distributed algorithms - concurrent programs processes communicate synchronize message passing. Areas interest include fault-tolerance techniques understanding correctness algorithms.
+ 8 	Addressing schemes resources networks; resource addressing network operating systems
+ 9 	Security considerations local networks, network operating systems, distributed systems.
+ 10 	Parallel languages; languages parallel computation
+ 11 	SETL, High Level Languages
+ 12 	portable operating systems
+ 13 	code optimization space efficiency
+ 14 	find discussions optimal implementations sort algorithms database management applications
+ 15 	Find discussions horizontal microcode optimization special emphasis optimization loops global optimization.
+ 16 	find descriptions handling operating systems based multiple processes message passing.
+ 17 	Optimization intermediate machine code
+ 18 	Languages compilers parallel processors, especially highly horizontal microcoded machines; code compaction
+ 19 	Parallel algorithms
+ 20 	Graph theoretic algorithms applicable sparse matrices
+ 21 	computational complexity, intractability, class-complete reductions, algorithms efficiency
+ 22 	interested hidden-line hidden-surface algorithms cylinders, toroids, spheres, cones. specialized topic computer graphics.
+ 23 	Distributed computing structures algorithms
+ 24 	Applied stochastic processes
+ 25 	Performance evaluation modelling computer systems
+ 26 	Concurrency control mechanisms operating systems
+ 27 	Memory management aspects operating systems
+ 28 	information packet radio networks. interest algorithms packet routing, dealing network topography. interested hardware network.
+ 29 	Number-theoretic algorithms, especially involving prime number series, sieves, Chinese Remainder theorem.
+ 30 	Articles text formatting systems, including " " systems. Examples: /nroff, scribe, bravo.
+ 31 	' find articles describing singular decomposition digital image processing. Applications include finding approximations original image restoring images subject noise. article subject . Andrews . Patterson "Outer product expansions digital image processing", American Mathematical Andrews, . Patterson, .
+ 32 	' find articles describing graph algorithms based eigenvalue decomposition ( singular decomposition) ajacency matrix graph. ' especially interested heuristic algorithms graph coloring graph isomorphism method.
+ 33 	Articles sensitivity eigenvalue decomposition real matrices, , zero-one matrices. ' especially interested separation eigenspaces distinct eigenvalues. Articles subject: . Davis . Kahn, " rotation eigenvectors permutation:, SIAM . Numerical Analysis, vol. 7, . 1 (1970); . Stewart, "Error bounds approximate invariant subspaces closed linear operators", SIAM . Numerical Analysis., Vol. 8, . 4 (1971). Davis, . Kahn, . Stewart, .
+ 34 	interested isolation root polynomial; recent material. Heindel, .
+ 35 	Probabilistic algorithms especially dealing algebraic symbolic manipulation. examples: Rabiin, "Probabilistic algorithm finite field", SIAM Waztch, "Probabilistic testing polynomial identities", SIAM Rabin,.
+ 36 	Fast algorithm context-free language recognition parsing
+ 37 	Articles describing relationship data types concurrency (.. type process? synchronization attempt processes "type correct"? message-passing system notion types messages?--i.. check sender message receiver treating bit stream type)
+ 38 	type module? ( don' want entire literature Abstract Data Types , ' sure phrase avoid . ' interested questions check module "matches" contexts .)
+ 39 	type compatibility mean languages allow programmer defined types? ( want restrict "extensible" languages allow definition abstract data types programmer-supplied definitions operators *, +.)
+ 40 	List articles dealing data types languages: referenced frequently papers languages (.. catch languages interesting type structures missed).
+ 41 	Theory distributed systems databases. Subtopics special interest include reliability fault-tolerance distributed systems, atomicity, distributed transactions, synchronization algorithms, resource allocation; lower bounds models asynchronous parallel systems. theory communicating processes protocols. . Box 2158 Yale Station, Haven, Conn. 06520
+ 42 	Computer performance evaluation techniques pattern recognition clustering. LA 70803
+ 43 	Analysis perception shape humans computers. Shape descriptions, shape recognition computer. Two-dimensional shapes. Measures circularity. Shape matching.
+ 44 	Texture analysis computer. Digitized texture analysis. Texture synthesis. Perception texture.
+ 45 	operations research models optimize information system performance. includes fine tuning decisions secondary index selection, reorganization, distributed databases.
+ 46 	application fuzzy subset theory clustering information retrieval problems. includes performance evaluation automatic indexing considerations.
+ 47 	Bayesian decision models optimize information retrieval system performance. includes stopping rules determine user cease scanning output retrieval search.
+ 48 	computer science principles (.. data structures, numerical methods) generating optimization (.. linear programming) algorithms. includes issues Khachian (Russian, ellipsoidal) algorithm complexity algorithms.
+ 49 	role information retrieval knowledge based systems (.., expert systems).
+ 50 	Parallel processors information retrieval
+ 51 	Parallel processors paging algorithms
+ 52 	Modelling simulation agricultural ecosystems.
+ 53 	mathematical induction, group theory, integers modulo , probability, binomial coefficients, binomial theorem, homomorphism, morphism, transitivity, relations, relation matrix. Syracuse University, 313 Link Hall, Syracuse, . 13210
+ 54 	Semantics programming languages, including abstract specifications data types, denotational semantics, proofs correctness. Hoare, . Dijkstra, . University Massachusetts, Amherst, MA 01003
+ 55 	dealing star height regular languages regular expressions regular events.
+ 56 	Articles relation algebraic theory semigroups monoids study automata regular languages.
+ 57 	Abstracts articles: . Backus, " programming liberated Von Neumann style? functional style algebra programs", CACM 21 Re Millo, . Lipton, . Perlis, letter ACM Forum, CACM 22 (1979), 629-630 Backus, . De Millo, . Lipton, . Perlis, .
+ 58 	Algorithms statistical packages ANOVA, regression squares generalized linear models. System design, capabilities, statistical formula interest. Student' test, Wilcoxon sign tests, multivariate univariate components included.
+ 59 	Dictionary construction accessing methods fast retrieval words lexical items morphologically related information. Hashing indexing methods applied English spelling natural language problems.
+ 60 	Hardware software relating database management systems. Database packages, back end computers, special associative hardware microcomputers attached disk heads things RAP, relational network (CODASYL) hierarchical models, systems SYSTEM , IMS, ADABAS, TOTAL, .
+ 61 	Information retrieval articles Gerard Salton clustering, bibliographic coupling, citations co-citations, vector space model, Boolean search methods inverted , feedback, . Salton, .
+ 62 	Results relating parallel complexity theory ( PRAM' uniform circuits).
+ 63 	Algorithms parallel computation, especially comparisons parallel sequential algorithms.
+ 64 	List articles EL1 ECL (EL1 EL1; don' remember .

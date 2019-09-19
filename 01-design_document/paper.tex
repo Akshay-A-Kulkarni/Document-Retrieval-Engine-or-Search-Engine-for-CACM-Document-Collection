@@ -1,0 +1,95 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{CS 6200 Information Retrieval Final Project\\
+Design Document\\
+{\footnotesize Spring 2019 \textemdash Professor Rukmini Vijaykumar}
+}
+
+\author{\IEEEauthorblockN{Brian Desnoyers}
+\IEEEauthorblockA{\textit{Khoury College of Computer Sciences} \\
+\textit{Northeastern University}\\
+Boston, MA, U.S.A. \\
+bdesnoy@ccs.neu.edu}
+\and
+\IEEEauthorblockN{John Goodacre}
+\IEEEauthorblockA{\textit{Khoury College of Computer Sciences} \\
+\textit{Northeastern University}\\
+Boston, MA, U.S.A. \\
+goodacre.j@husky.neu.edu}
+\and
+\IEEEauthorblockN{Akshay Kulkarni}
+\IEEEauthorblockA{\textit{Khoury College of Computer Sciences} \\
+\textit{Northeastern University}\\
+Boston, MA, U.S.A. \\
+kulkarni.akshay@husky.neu.edu}
+}
+
+\maketitle
+
+\section{Introduction}
+This project will explore the development and evaluation of several search engines based for a provided test collection of scholarly journal abstracts. Baseline systems will be improved via query enhancement techniques, such as word embedding query expansion and stemming. A snippet generation and spelling error correction model will also be developed to improve the baseline retrieval systems.
+
+\section{Background}
+% AKA Techniques to be used and justification, Literature and resources
+\subsection{Dataset}
+This project utilizes a dataset consisting of 3024 abstracts from the Communications of the ACM (CACM) published between 1958 and 1979 \cite{croftsearch}. 
+\subsection{Baseline Models}
+This project involves the development of several information retrieval systems, with an evaluation and comparison of their performance in terms of retrieval effectiveness. This involves four baseline models.
+\\\\
+The first baseline model is a term frequency–inverse document frequency (tf-idf) vector space model \cite{salton1988term}. This model involves computing distances between document and query vectors, through metrics such as cosine distance. These vectors are computed based on the tf-idf values for each term within the vocabulary, which is product of the term frequency within the document and the reciprocal document frequency of the term \cite{salton1988term}. 
+\\\\
+The second baseline model is a binary independence model (BIM) \cite{yu1975precision}, which does not incorporate term weights, thus assuming that documents are binary vectors. This method attempts to estimate the probability that a particular document is relevant, assuming that terms are independent given document relevance \cite{yu1975precision}, similar to a Na\"ive Bayes classifier.
+\\\\
+The third baseline model is a Best Matching 25 (BM25) ranking \cite{robertson1995okapi}, which expands the binary independence model to incorporate term weights for both queries and documents. The BM25 ranking algorithm is thus a probabilistic model.
+\\\\
+The final baseline model is Lucene, which is an open-source indexing and searching tool \cite{bialecki2012apache}, and is used within common search engine implementations, such as Apache Solr \cite{grainger2014solr} and Elasticsearch \cite{divya2013elasticsearch}. Lucene uses its own scoring function which is based on tf-idf \cite{bialecki2012apache}.
+
+\subsection{Query Enhancement}
+\subsubsection{Query Expansion}
+Query expansion is a method used to improve retrieval system performance and relevance by adding additional terms to a query \cite{efthimiadis1996query}. Several methods for query expansion exist, including pseudo-relevance feedback and word embedding-based query expansion. Pseudo-relevance feedback uses highly ranked documents to select new terms for query expansion and has been shown to be effective both with and without improvements, such as a term proximity heuristic for selecting expansion terms near query terms \cite{lv2010positional}. Another modern query expansion technique involves the use of word embeddings, which are commonly used in natural language processing. Word embeddings map co-occurance information to a lower dimensional space, often using a skip-gram or continuous bag of words model. Query expansion terms can be identified by finding nearest neighbors to query terms via these models \cite{diaz2016query}.
+\subsubsection{Stopping}
+Stopping is a technique used to filter out specific words, known as stop words. Ideally these stop words will be common across many documents in the collection and thus have limited semantic meaning or impact on document relevance. Words might carry little meaning from a frequency (or information theoretic) point of view, or alternatively from a conceptual (or linguistic) point of view. Words that occur in many of the documents in the collection carry little meaning from a frequency point of view, because a search for documents that contain that word will retrieve many of the documents in the collection. By removing the very frequent words, the document rankings will not be affected that much. While these stop words can be removed at index time, but are often used only at query time as this allows for more flexibility during search. Stop word removal on the basis of frequency can be done easily by removing the words with the highest
+frequencies in the document collection. As a result of stopping the most 200-300 frequent words, indexes may be between 30\% and 50\% smaller \cite{djoerd2001statistical}.
+\subsubsection{Stemming}
+Stemming is the process of reducing all words with the same root (or, if prefixes are left untouched, the same stem) to a common form, usually by stripping each word of its derivational
+and inflectional suffixes. There are various stemming strategies developed for different purposes\cite{Lovins1968DevelopmentOA}. Some stemming algorithms utilize a stem dictionary and others a suffix list. Many stemming algorithms, designed to improve IR performance and document relevance, do not use
+a stem dictionary, but an explicit list of suffixes, and the criteria for removing suffixes. Stemmers of the popular stemmer family, the Porter stemmers, have adopted this approach \cite{airio2006word}.
+\\\\
+\subsection{Snippet Generation and Highlighting}
+A classical approach for snippet generation is extractive summarization using an extension of Luhn's Algorithm \cite{luhn1958automatic}. This algorithm involves the identification of key phrases within sentences containing query terms. The query terms identified within these key phrases can be highlighted to the user via the search engine interface.
+
+\section{Proposed Implementation}
+% Design choices and justification
+\subsection{Baseline Models}
+The baseline models will be implemented in Python. The tf-idf vector space model will be implemented by computing ranking scores based on cosine distance of tf-idf vectors computed based on a document index. This will utilize a vocabulary generated from the index, with Laplace smoothing. Similarly, the BIM and BM25 baselines will be implemented in Python. The final Lucene-based model will be developed using PyLucene \cite{vajda2005pulling}.
+
+\subsection{Query Enhancement}
+Query expansion will be performed via pseudo-relevance feedback and Word2vec-trained \cite{mikolov2015computing} word embeddings. For pseudo-relevance feedback, $6$ query terms will be selected based on the $10$ top ranked documents to find the expansion terms. Due to the limited size of the training set, we will utilize a pre-trained set of word embeddings from about three million words from Google News \cite{mikolov2013distributed}. This will utilize a skip-gram model \cite{mikolov2013distributed}. The Gensim library will be used to perform initial processing of these word embeddings \cite{rehurek_lrec}. Stopping will utilize the provided project stop list. Stemming will utilize the provided query and document files.
+
+\subsection{Snippet Generation and Highlighting}
+Snippet generation will be performed via extractive summarization using an extension of Luhn's Algorithm. Sentences will be ranked based on a computed significance factor, which is the number of query terms within the key phrase divided by the total number of words in the key phrase. Initial query terms will be extracted and highlighted within the terminal output (\verb|\033[1m term \033[0m|).
+
+\subsection{Combining Approaches}
+To combine approaches, a final run will combine stopping with the word embedding query expansion technique.
+
+\subsection{Extra Credit}
+A spelling error interface will be implemented.
+
+\subsection{Planned Contributions}
+Brian will provide the wrapping for the existing baseline models. Akshay will modify the ranking function of the BM25 model to create the binary independence model and develop the tf-idf vector space model. Brian will develop the query expansion model based on word2vec-trained word embeddings. John will perform the stopping and stemming runs. Brian will develop the snippet generation and highlighting system. The team will collaborate on the spelling error interface.
+
+\bibliography{paper-sources}{}
+\bibliographystyle{ieeetran}
+
+\end{document}
